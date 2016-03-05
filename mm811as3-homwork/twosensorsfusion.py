@@ -37,8 +37,9 @@ testNew  = (testInputs ,linit(testOutputs))
 
 net = theanets.Classifier([11,(100,'softmax'),(500,'softmax'),(1000,'softmax'),(500,'softmax'),(250,'softmax'),(100,'softmax'),(2,'softmax')])
 #net = theanets.Classifier([11,(500,'sigmoid'),(1000,'sigmoid'),(500,'sigmoid'),(2,'sigmoid')])
-net.train(train, valid, algo='layerwise', max_updates=mupdates, patience=1,save_every=100,save_progress="model{}")
+net.train(train, valid, algo='layerwise', max_updates=mupdates, patience=1)
 print "Finsh and Save model"
+net.save('model{}')
 print "Learner on the test set"
 classify = net.classify(test[0])
 print "%s / %s " % (sum(classify == test[1]),len(test[1]))
