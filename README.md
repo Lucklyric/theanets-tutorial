@@ -1,5 +1,7 @@
-# Deep Learning Tutorial
+# Deep Learning Tutorial (For Win2016 MM811 Assignment 1)
+[Port](https://github.com/Lucklyric/theanets-tutorial/tree/master/mm811as3-homwork) to Assignment Folder
 
+## Original Project
 #### Abram Hindle
 #### <abram.hindle@ualberta.ca>
 #### http://softwareprocess.ca/
