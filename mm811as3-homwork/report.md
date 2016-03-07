@@ -52,6 +52,7 @@ All of them has these common settings:
 | Hidden layer activation              | rectified linear      | 
 | Output layer activation          | softmax      |  
 |Loss function    |CrossEntropy   |
+|momentum | 0.9 |
 | Trainers    |layerwise    |
 
 ### Results are shown as follows:
@@ -64,7 +65,7 @@ Outputs:
 
 | Test Strategy        | TP    |    TN|FP|FN|
 | ------------- |:-------------:|:----------:|:----------:|:----------:|
-|90:10 split  | 262 | 266 | 55  |37 |
+|10% split  | 262 | 266 | 55  |37 |
 |Other dataset| 3432| 2968| 1346|882|
 
 
@@ -76,23 +77,39 @@ Outputs:
 
 | Test Strategy        | TP    |    TN|FP|FN|
 | ------------- |:-------------:|:----------:|:----------:|:----------:|
-|90:10 split  | 269 | 296 | 27  |28 |
+|10% split  | 269 | 296 | 27  |28 |
 |Other dataset| 3351| 3112| 1202|963|
 
 
 ***
 Layers architecture:
-* [11,1000,2]
+* [11,50,500,500,200,50,2]
 
 Outputs:
 
 | Test Strategy        | TP    |    TN|FP|FN|
 | ------------- |:-------------:|:----------:|:----------:|:----------:|
-|90:10 split  | 285 | 303 | 16  |16 |
+|10% split  | 285 | 303 | 16  |16 |
 |Other dataset| 3459| 2664| 1650|855|
 
 ***
+### Extra
 
+In order to explore more here is one sample that adding "regularization" methods.
+***
+Layers architecture:
+* [11,50,500,500,200,50,2]
+
+Hidden-Dropout: 
+* 0.5
+Outputs:
+
+| Test Strategy        | TP    |    TN|FP|FN|
+| ------------- |:-------------:|:----------:|:----------:|:----------:|
+|10% split  | 282 | 184 | 146  |8 |
+|Other dataset| 3979| 2378| 1936|335|
+
+***
 ## Discussion
 
 ## Summary
