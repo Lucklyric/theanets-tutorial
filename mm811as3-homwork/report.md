@@ -1,7 +1,7 @@
 # MM811 Assignment Report
 Name: Xinyao Sun
 ***
-## Description of Dataset
+## 1.Description of Dataset
 The dataset is generated from my [MM804 term projects](https://github.com/Lucklyric/Fall2015MM804Project/tree/For_Deep_Learning_MM811_AS3) matlab program. I added ["outputTrainningFile.m"](https://github.com/Lucklyric/Fall2015MM804Project/blob/For_Deep_Learning_MM811_AS3/MatLabScripts/outputTrainningFile.m) on brach "For MM811 AS3" to make it able to generate the datafile for this assignment.
 
 Hand motion data is recorded by rotating an artificial hand in the middle of two sensors.  The detail of experiments environment is described in above report. Moreover, each dataset is generated through once recording.
@@ -16,12 +16,12 @@ git clone -b For_Deep_Learning_MM811_AS3 https://github.com/Lucklyric/Fall2015MM
 
 Run the "outputTrainningFile.m" under "MatLabScripts" directory in your MatLab
 
-## Deep Learning Problem
+## 2.Deep Learning Problem
 The high-level purpose is for multi-sensors hand motion data fusion to deal with the vision-based sensors' occlusion problem, you can link [here](https://drive.google.com/file/d/0B0LsW1CrvC0RODNtNHFfdWdLcGM/view?usp=sharing) to read the report from my MM804 course project.( In previous work I used SVM to build the classifer. )
 
 The low-level task for using the deep learning is that I want to have a classifier(pre-trained) to intelligently determine which sensor contributes the most accurate hand pose estimation based on a set of selected hands information(feature vector) read from a sensor array (two sensors here).
 
-## Inputs of the model
+## 3.Inputs of the model
 Inputs of the model is a feature vector with 11 floating point value as follows:
 * Three (X, Y, and Z) values of the palm position relative
 to the sensor.
@@ -35,12 +35,12 @@ the sensor is facing.
 an internal proprietary algorithm of the Leap motion
 API that is a floating number between 0 and 1.
 
-## Output of the model
+## 4.Output of the model
 The output of the model is 0 or 1:
 * 0: This sensor is classified as the sensor that generates worse pose estimation
 * 1: This sensor is classified as the sensor that generates better pose estimation
 
-## Performance of selected differnt architecture
+## 5.Performance of selected differnt architecture
 I used two datasets to evaluate the performance of different architectures. Two datasets mean there are two independent recording. I used one with 90% split for training and 10% split for testing. Furthermore, in order to measure the condition of overfitting, I used the other dataset to test the trained classifier.
 
 
@@ -55,7 +55,7 @@ All of them has these common settings:
 |momentum | 0.9 |
 | Trainers    |layerwise    |
 
-### Results are shown as follows:
+### 5.1.Results are shown as follows:
 
 ***
 Layers architecture:
@@ -93,7 +93,7 @@ Outputs:
 |Other dataset| 3459| 2664| 1650|855|
 
 ***
-### Extra
+### 5.2.Extra
 
 In order to explore more here is one sample that adding "regularization" methods.
 ***
@@ -110,6 +110,6 @@ Outputs:
 |Other dataset| 3979| 2378| 1936|335|
 
 ***
-## Discussion
+## 6.Discussion
 
-## Summary
+## 7.Summary
