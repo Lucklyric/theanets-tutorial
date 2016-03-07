@@ -12,7 +12,7 @@ If not please got to [tutorial page](https://github.com/Lucklyric/theanets-tutor
 ## Train the model
 * Using CPU
 `````
-python twosensorsfusion.py
+HEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=cpu python twosensorsfusion.py
 `````
 * Using GPU, make sure you have isntalled Cuda (tested with Cuda version 7.5)
 `````
@@ -21,7 +21,8 @@ THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=gpu python twosensorsfusion.py
 
 ## Evaluate trained model
 `````
-python test-trained-model.py <path of trained model>
+python test-trained-model.py <path of trained model> <path of test dataset>
 `````
 
 ## Report
+[Link to the report.](https://github.com/Lucklyric/theanets-tutorial/blob/master/mm811as3-homwork/report.md)
