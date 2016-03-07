@@ -111,5 +111,16 @@ Outputs:
 
 ***
 ## 6.Discussion
+Overall, I tested lots of combination of layers structure, activation and loss functions, the default setting in theanets almost gives best results.
+ According to the above selected models, experimental results show that more complex deep learning architecture generate more accurate classifier result on a small part of the same dataset (90% for training and valid and 10% for test). However, when I used a larger another new dataset, which is not recorded at the same time as the training dataset.  The model with more complex architecture leads slightly worse results. The deep neural network may cause the overfitting problem. Then I tried with the `dropout` technique on the hidden layers with a value of 0.5, it improved the results a bit but still not good.   
+ 
+Here are some ways I expect to improve the classifier's results.
+* Using larger training dataset
+* Add one pos-classifier procedure:
+  * Each frame I have two feature vector from two sensors. 
+  * Use the DNN model with `predict_proba()` function to generate the estimated probability for both sensors.
+  * Lable the sensor with a higher probability with 1 and the other with 0 as the final classify result.
+* Combine two sensors 11 features (at each frame) to a larger feature vector with size 22, then use this new feature vector as the input to train the DNN.
 
 ## 7.Summary
+In this homework, I built a deep learning model to intelligently select the sensor with more accurate pose estimation at each time step, based on a subset of the underlying pose estimation data from each sensor.  According to the experiments results, more complex DNN architecture r gives around 93% accuracy but leads around 70% accuracy on the larger new dataset. As the future work, I want to try more regularization methods and the possible ways as I mentioned before to see how well I can improve the final results.
