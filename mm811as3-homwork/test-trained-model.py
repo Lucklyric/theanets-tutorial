@@ -16,7 +16,7 @@ logging.basicConfig(stream = sys.stderr, level=logging.INFO)
 
 
 # load the test data set
-testData = np.loadtxt(sys.argv[1],delimiter=",")
+testData = np.loadtxt(sys.argv[2],delimiter=",")
 testInputs  = testData[0:,0:11].astype(np.float32)
 testOutputs = testData[0:,11:12].astype(np.int32)
 
@@ -27,7 +27,7 @@ def linit(x):
 testNew  = (testInputs ,linit(testOutputs))
 
 # load the model
-net.load(sys.argv[1])
+net = theanets.Classifier.load(sys.argv[1])
 
 # print out the results
 print "Learner on the New test set"
