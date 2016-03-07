@@ -4,9 +4,11 @@ Name: Xinyao Sun
 ## Description of Dataset
 The dataset is generated from my [MM804 term projects](https://github.com/Lucklyric/Fall2015MM804Project/tree/For_Deep_Learning_MM811_AS3) matlab program. I added ["outputTrainningFile.m"](https://github.com/Lucklyric/Fall2015MM804Project/blob/For_Deep_Learning_MM811_AS3/MatLabScripts/outputTrainningFile.m) on brach "For MM811 AS3" to make it able to generate the datafile for this assignment.
 
+Hand motion data is recorded by rotating an artificial hand in the middle of two sensors.  The detail of experiments environment is described in above report. Moreover, each dataset is generated through once recording.
+
 Each line in the data set includes a set of hands spatial information read from a [Leaps Motion Sensor](https://www.leapmotion.com/) at one frame and is followed by the label (0 or 1) indicates if this sensor returns the most accurate pose estimation among a sensor array at this timestamp. 
 
-In order to generate the datafile for this assignment
+In order to generate the data file for this assignment
 
 `````
 git clone -b For_Deep_Learning_MM811_AS3 https://github.com/Lucklyric/Fall2015MM804Project.git
@@ -35,10 +37,61 @@ API that is a floating number between 0 and 1.
 
 ## Output of the model
 The output of the model is 0 or 1:
-* 0: This sensor is classified as the sensor generate worse pose estimation
-* 1: This sensor is classified as the sensor generate better pose estimation
+* 0: This sensor is classified as the sensor that generates worse pose estimation
+* 1: This sensor is classified as the sensor that generates better pose estimation
 
 ## Performance of selected differnt architecture
+I used two datasets to evaluate the performance of different architectures. Two datasets mean there are two independent recording. I used one with 90% split for training and 10% split for testing. Furthermore, in order to measure the condition of overfitting, I used the other dataset to test the trained classifier.
+
+
+Three models with different layer structures from simple to complex.
+All of them has these common settings:
+
+| Arguments        | Value    |    
+| ------------- |:-------------:|
+| Hidden layer activation              | rectified linear      | 
+| Output layer activation          | softmax      |  
+|Loss function    |CrossEntropy   |
+| Trainers    |layerwise    |
+
+### Results are shown as follows:
+
+***
+Layers architecture:
+* [11,20,2]
+
+Outputs:
+
+| Test Strategy        | TP    |    TN|FP|FN|
+| ------------- |:-------------:|:----------:|:----------:|:----------:|
+|90:10 split  | 262 | 266 | 55  |37 |
+|Other dataset| 3432| 2968| 1346|882|
+
+
+***
+Layers architecture:
+* [11,1000,2]
+
+Outputs:
+
+| Test Strategy        | TP    |    TN|FP|FN|
+| ------------- |:-------------:|:----------:|:----------:|:----------:|
+|90:10 split  | 269 | 296 | 27  |28 |
+|Other dataset| 3351| 3112| 1202|963|
+
+
+***
+Layers architecture:
+* [11,1000,2]
+
+Outputs:
+
+| Test Strategy        | TP    |    TN|FP|FN|
+| ------------- |:-------------:|:----------:|:----------:|:----------:|
+|90:10 split  | 285 | 303 | 16  |16 |
+|Other dataset| 3459| 2664| 1650|855|
+
+***
 
 ## Discussion
 
