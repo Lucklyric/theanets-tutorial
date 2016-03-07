@@ -44,9 +44,10 @@ testNew  = (testInputs ,linit(testOutputs))
 
 # build the model
 #net = theanets.Classifier([11,(100,'softplus'),(500,'softplus'),(1000,'softplus'),(500,'softplus'),(250,'softplus'),(100,'softplus'),(2,'softplus')])
-net = theanets.Classifier([11,(100,'softplus'),(500,'softplus'),(1000,'softplus'),(500,'softplus'),2])
-#net = theanets.Classifier([11,50,500,500,200,50,2])
-net.train(train, valid, algo='layerwise',max_updates=mupdates)
+#net = theanets.Classifier([11,(100,'softplus'),(500,'softplus'),(1000,'softplus'),(500,'softplus'),2])
+net = theanets.Classifier([11,50,500,500,200,50,2])
+
+net.train(train, valid, algo='layerwise',max_updates=mupdates, momentum=0.9)
 
 # save the model
 print "Finsh and Save model"
