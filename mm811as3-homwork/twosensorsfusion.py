@@ -35,11 +35,12 @@ valid = (valid[0],linit(valid[1]))
 test = (test[0],linit(test[1]))
 testNew  = (testInputs ,linit(testOutputs))
 
-net = theanets.Classifier([11,(100,'softmax'),(500,'softmax'),(1000,'softmax'),(500,'softmax'),(250,'softmax'),(100,'softmax'),(2,'softmax')])
-#net = theanets.Classifier([11,(500,'sigmoid'),(1000,'sigmoid'),(500,'sigmoid'),(2,'sigmoid')])
-net.train(train, valid, algo='layerwise', max_updates=mupdates, patience=1)
+#net = theanets.Classifier([11,(100,'softplus'),(500,'softplus'),(1000,'softplus'),(500,'softplus'),(250,'softplus'),(100,'softplus'),(2,'softplus')])
+#net = theanets.Classifier([11,(100,'relu'),(500,'relu'),(1000,'relu'),(500,'relu'),(2,'relu')])
+net = theanets.Classifier([11,50,500,500,200,50,2])
+net.train(train, valid, algo='layerwise',momentum=0.9,max_updates=mupdates,hidden_dropout=0.5)
 print "Finsh and Save model"
-net.save('model{}')
+net.save("models/model([11,50,500,500,200,50,2]|algo=layerwise,momentum=0.9,max_updates=1000,hidden_dropout=0.5")
 print "Learner on the test set"
 classify = net.classify(test[0])
 print "%s / %s " % (sum(classify == test[1]),len(test[1]))
