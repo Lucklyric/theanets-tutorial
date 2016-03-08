@@ -1,4 +1,4 @@
-# Deep Learning Tutorial (For Win2016 MM811 Assignment 1)
+# Deep Learning Tutorial (For Win2016 MM811 Assignment 3)
 [Port](https://github.com/Lucklyric/theanets-tutorial/tree/master/mm811as3-homwork) to Assignment Folder
 
 ## Original Project
